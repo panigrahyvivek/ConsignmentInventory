@@ -1,0 +1,209 @@
+{
+	"_version": "1.8.0",
+	"sap.app": {
+		"_version": "1.3.0",
+		"id": "com.sap.build.leonardo.consignmentInventoryTrack",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"applicationVersion": {
+			"version": "1.2.2"
+		},
+		"ach": "ach",
+		"resources": "resources.json",
+		"dataSources": {
+			"local": {
+				"uri": "/here/goes/your/serviceUrl/local/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/metadata.xml"
+				}
+			}
+		},
+		"sourceTemplate": {
+			"id": "sap.ui.ui5-template-plugin.2masterdetail",
+			"version": "1.32.5"
+		}
+	},
+	"sap.fiori": {
+		"_version": "1.1.0",
+		"registrationIds": [],
+		"archeType": "transactional"
+	},
+	"sap.ui": {
+		"_version": "1.3.0",
+		"technology": "UI5",
+		"icons": {
+			"icon": "sap-icon://detail-view",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"_version": "1.3.0",
+		"rootView": {
+			"viewName": "com.sap.build.leonardo.consignmentInventoryTrack.view.App",
+			"type": "XML",
+			"async": false,
+			"id": "app"
+		},
+		"autoPrefixId": true,
+		"dependencies": {
+			"minUI5Version": "1.50.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"uri": "i18n/i18n.properties"
+			},
+			"": {
+				"dataSource": "local",
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"preload": true,
+				"settings": {
+					"loadMetadataAsync": false,
+					"json": true,
+					"bJSON": true,
+					"defaultBindingMode": "TwoWay",
+					"defaultCountMode": "Inline",
+					"useBatch": true,
+					"refreshAfterChange": false,
+					"disableHeadRequestForToken": true
+				}
+			}
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "com.sap.build.leonardo.consignmentInventoryTrack.view",
+				"controlId": "idAppControl",
+				"clearTarget": false,
+				"controlAggregation": "detailPages",
+				"async": false,
+				"bypassed": {
+					"target": [
+						"InventoryStockViewSr",
+						"CustomerMaster"
+					]
+				}
+			},
+			"targets": {
+				"CustomerMaster": {
+					"controlAggregation": "masterPages",
+					"viewName": "CustomerMaster",
+					"viewId": "CustomerMaster",
+					"viewLevel": 1,
+					"transition": "show"
+				},
+				"InventoryStockViewSr": {
+					"controlAggregation": "detailPages",
+					"viewName": "InventoryStockViewSr",
+					"viewId": "InventoryStockViewSr",
+					"viewLevel": 1,
+					"transition": "slide"
+				},
+				"InventoryStockViewHospital": {
+					"controlAggregation": "detailPages",
+					"viewName": "InventoryStockViewHospital",
+					"viewId": "InventoryStockViewHospital",
+					"viewLevel": 1,
+					"transition": "slide"
+				},
+				"InventoryStockViewOffice": {
+					"controlAggregation": "detailPages",
+					"viewName": "InventoryStockViewOffice",
+					"viewId": "InventoryStockViewOffice",
+					"viewLevel": 1,
+					"transition": "slide"
+				},
+				"InventoryStockViewTerritory": {
+					"viewType": "XML",
+					"viewName": "InventoryStockViewTerritory"
+				},
+				"HomeListReport": {
+					"viewType": "XML",
+					"viewName": "HomeListReport"
+				}
+			},
+			"routes": [
+				{
+					"pattern": "CustomerMaster/:masterContext:",
+					"name": "CustomerMaster",
+					"target": [
+						"InventoryStockViewHospital",
+						"CustomerMaster"
+					]
+				},
+				{
+					"pattern": "CustomerMaster/InventoryStockViewSr/:context:",
+					"name": "InventoryStockViewSr",
+					"target": [
+						"CustomerMaster",
+						"InventoryStockViewSr"
+					]
+				},
+				{
+					"pattern": "CustomerMaster/:masterContext:/InventoryStockViewHospital",
+					"name": "InventoryStockViewHospital",
+					"target": [
+						"CustomerMaster",
+						"InventoryStockViewHospital"
+					]
+				},
+				{
+					"pattern": "CustomerMaster/:masterContext:/InventoryStockViewOffice",
+					"name": "InventoryStockViewOffice",
+					"target": [
+						"CustomerMaster",
+						"InventoryStockViewOffice"
+					]
+				},
+				{
+					"pattern": "CustomerMaster/:masterContext:/InventoryStockViewTerritory",
+					"name": "InventoryStockViewTerritory",
+					"target": [
+						"CustomerMaster",
+						"InventoryStockViewTerritory"
+					]
+				},
+				{
+					"pattern": "",
+					"name": "default",
+					"target": [
+						"HomeListReport"
+					]
+				},
+				{	"pattern": "Customers",
+					"name": "CustomerHome",
+					"target": [
+						"CustomerMaster",
+						"InventoryStockViewTerritory"
+					]
+				}
+			]
+		}
+	},
+	"sap.platform.hcp": {
+		"uri": "webapp",
+		"_version": "1.1.0"
+	}
+}

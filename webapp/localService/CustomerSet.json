@@ -1,0 +1,28 @@
+[
+{
+	"ID": "T1000",
+	"CustomerName": "Territory1",
+	"Type": "T",
+	"Territory": "Territory1"
+},	
+{
+	"ID": "H67615",
+	"CustomerName": "Lehigh Valley Hospital",
+	"Type": "H",
+	"Territory": "Territory1"
+}, 
+{
+	"ID": "O01010",
+	"CustomerName": "Office - California",
+	"Type": "O",
+	"Territory": "Territory1"
+},
+
+{
+	"ID": "SR1223276",
+	"CustomerName": "William hsaio",
+	"Type": "SR",
+	"Territory": "T2"
+}
+
+]

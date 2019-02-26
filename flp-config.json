@@ -1,0 +1,35 @@
+{
+    "application": {
+        "id": "",
+        "title": "com.sap.build.leonardo.consignmentInventoryTrack.ConsignmentInventory",
+        "description": "Consignment Inventory",
+        "type": "SAP_UI5_Component",
+        "componentUrl": "/webapp",
+        "appUrl": "#ConsignmentInventory-Display",
+        "navigationComponentName": "com.sap.build.leonardo.consignmentInventoryTrack",
+        "intentSemanticObject": "ConsignmentInventory",
+        "intentAction": "Display",
+        "html5ApplicationName": "consignmentinventory",
+        "HCPParentApplicationName": ""
+    },
+    "assignment": {
+        "groups": [
+            "v_basic_apps"
+        ],
+        "contentPackages": [
+            "v_training"
+        ],
+        "categories": []
+    },
+    "tile": {
+        "type": "StaticTile",
+        "title": "Inventory Consignment",
+        "subtitle": "By Customer",
+        "searchKeywords": "Inventory Consignment,By Customer",
+        "displayIconUrl": "sap-icon://clinical-tast-tracker",
+        "displayInfoText": "",
+        "size": "1x1",
+        "serviceURL": "",
+        "refreshInterval": ""
+    }
+}

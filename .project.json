@@ -1,0 +1,19 @@
+{
+    "dataBinding": {
+        "/webapp/view/CustomerMaster.view.xml": {
+            "entitySet": "/CustomerSet"
+        }, 
+        "/webapp/view/InventoryStockViewSr.view.xml": {
+            "entitySet": "/CustomerSet"
+        }, 
+        "/webapp/view/InventoryStockViewHospital.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/InventoryStockViewOffice.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/dialog_1.view.xml": {
+            "entitySet": ""
+        } 
+    }
+}

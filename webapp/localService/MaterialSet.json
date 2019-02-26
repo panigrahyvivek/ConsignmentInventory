@@ -1,0 +1,19 @@
+[{
+	"ID": "M1",
+	"MaterialName": "Screw1mm",
+	"Quantity": "10",
+	"Batch": "Batch1",
+	"Unit": "EA",
+	"OwnershipDate": "/Date(1550793600000)/",
+	"___FK_710403591fc45ce311330a38_00011": ""
+},
+{
+	"ID": "M2",
+	"MaterialName": "Screw0.5mm",
+	"Batch": "Batch2",
+	"Quantity": "10",
+	"Unit": "EA",
+	"OwnershipDate": "/Date(1550793600000)/",
+	"___FK_710403591fc45ce311330a38_00011": ""
+}
+]

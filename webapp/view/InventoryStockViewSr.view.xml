@@ -1,0 +1,106 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.leonardo.consignmentInventoryTrack.controller.InventoryStockViewSr"
+	xmlns="sap.m" xmlns:chart="sap.chart" xmlns:data="sap.chart.data" xmlns:layout="sap.ui.layout" xmlns:s="sap.suite.ui.commons">
+	<Page title="Inventory Stock View SR" showHeader="true" showFooter="true" showNavButton="false" navButtonPress="_onPageNavButtonPress">
+		<content>
+			<ObjectHeader intro="{CustomerName}" title="{CustomerName}" icon="" numberState="None" backgroundDesign="Translucent" condensed="true"
+				visible="true" attributes="{path:'/CustomerSet', templateShareable:true}">
+				<attributes>
+					<ObjectAttribute title="Territory" text="{Territory}" active="false" visible="true"/>
+				</attributes>
+				<statuses/>
+				<markers/>
+			</ObjectHeader>
+			<s:ChartContainer id="chartContainersr" showFullScreen="true" showPersonalization="false" autoAdjustHeight="true"
+				showSelectionDetails="true">
+				<s:content>
+					<s:ChartContainerContent icon="sap-icon://upstacked-chart" title="Chart">
+						<s:content>
+							<chart:Chart id="sap_IconTabBar_Page_0-content-sap_chart_StackedColumnChart-1550853454797" width="100%" height="450px"
+								visibleDimensions="dim0,__id" visibleMeasures="mea1"
+								vizProperties="{staticDataModel>/sap_IconTabBar_Page_0-content-sap_chart_StackedColumnChart-1550853454797/vizProperties}"
+								chartType="stacked_column" selectionMode="Single" uiConfig="{}">
+								<chart:dimensions>
+									<data:Dimension name="dim0" label="InventoryType" role="category"/>
+									<data:Dimension name="__id" label="Entity" role="series" textProperty="dim1"/>
+								</chart:dimensions>
+								<chart:measures>
+									<data:Measure name="mea1" label="Stock" role="axis2"/>
+								</chart:measures>
+							</chart:Chart>
+						</s:content>
+					</s:ChartContainerContent>
+					<s:ChartContainerContent icon="sap-icon://table-view" title="Table">
+						<s:content>
+							<Table width="auto" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true"
+								class="sapUiResponsiveMargin" items="{path:'/MaterialSet', templateShareable:true}">
+								<infoToolbar>
+									<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+										<content>
+											<Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+										</content>
+									</Toolbar>
+								</infoToolbar>
+								<headerToolbar>
+									<OverflowToolbar width="auto" height="auto" design="Transparent" visible="true" enabled="true">
+										<content>
+											<Title text="Inventory (2)" titleStyle="Auto" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
+											<ToolbarSpacer width=""/>
+											<OverflowToolbarButton text="Sort" type="Transparent" icon="sap-icon://sort" iconFirst="true" width="auto" enabled="true" visible="true"
+												iconDensityAware="false"/>
+											<OverflowToolbarButton text="Filter" type="Transparent" icon="sap-icon://filter" iconFirst="true" width="auto" enabled="true" visible="true"
+												iconDensityAware="false"/>
+											<OverflowToolbarButton text="Group" type="Transparent" icon="sap-icon://group-2" iconFirst="true" width="auto" enabled="true" visible="true"
+												iconDensityAware="false"/>
+											<OverflowToolbarButton text="Settings" type="Transparent" icon="sap-icon://action-settings" iconFirst="true" width="auto" enabled="true"
+												visible="true" iconDensityAware="false"/>
+											<OverflowToolbarButton text="" type="Transparent" icon="sap-icon://download" iconFirst="true" width="auto" enabled="true" visible="true"
+												iconDensityAware="false" press="onDataExport"/>
+										</content>
+									</OverflowToolbar>
+								</headerToolbar>
+								<columns>
+									<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Phone" demandPopin="false" popinDisplay="Inline" mergeDuplicates="false">
+										<header>
+											<Text text="Material" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+										</header>
+										<footer/>
+									</Column>
+									<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+										<header>
+											<Text text="Sold To" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+										</header>
+										<footer/>
+									</Column>
+									<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+										<header>
+											<Text text="Quantity" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+										</header>
+										<footer/>
+									</Column>
+									<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+										<header>
+											<Text text="Ownership Date" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+										</header>
+										<footer/>
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem type="Active">
+										<cells>
+											<ObjectIdentifier title="{MaterialName}" titleActive="false" visible="true"/>
+											<Text text="{Batch}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+											<ObjectNumber number="{Quantity}" unit="{Unit}" emphasized="true" state="None"/>
+											<Text text="{path: '/OwnershipDate', type: 'sap.ui.model.type.Date', formatOptions: { style: 'short' }}"/>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</s:content>
+					</s:ChartContainerContent>
+				</s:content>
+			</s:ChartContainer>
+		</content>
+		<footer/>
+		<headerContent/>
+	</Page>
+</mvc:View>
